@@ -22,8 +22,8 @@
 
 textarea {
     width: 100%;
-    height: calc(100vh - 200px); /* 动态计算高度，留出一些边距空间 */
-    min-height: 300px; /* 保持最小高度 */
+    height: calc(100vh - 200px);
+    min-height: 300px;
     padding: 15px;
     border: 1px solid #e0e0e0;
     border-radius: 6px;

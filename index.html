@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>文本分词可视化</title>
+    <title>Text Regex Pattern Visualization</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="input-section">
-            <h3>输入文本</h3>
+            <h3>Input Text</h3>
             <div class="controls">
                 <select id="pattern-select" onchange="tokenize()">
                     <option value="gpt2">GPT2</option>
@@ -17,10 +17,10 @@
             <textarea id="input-text" oninput="tokenize()"></textarea>
         </div>
         <div class="output-section">
-            <h3>分词结果</h3>
+            <h3>Regex Match Results</h3>
             <div id="output"></div>
             <div class="legend">
-                <h4>正则表达式匹配说明</h4>
+                <h4>Regex Pattern Description</h4>
                 <div id="pattern-legend"></div>
             </div>
         </div>
