@@ -1,5 +1,9 @@
 # Text Regex Pattern Visualization
 
+<div align="center">
+    <img src="demo.gif" alt="Demo" width="800">
+</div>
+
 This project visualizes regex pattern matches in a given input text. It supports different tokenization patterns such as GPT2 and GPT4.
 
 ```python
