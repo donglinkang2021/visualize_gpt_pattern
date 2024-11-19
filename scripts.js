@@ -1,4 +1,3 @@
-
 const patterns = {
     gpt2: "'(?:[sdmt]|ll|ve|re)| ?\\p{L}+| ?\\p{N}+| ?[^\\s\\p{L}\\p{N}]+|\\s+(?!\\S)|\\s+",
     gpt4: "'(?i:[sdmt]|ll|ve|re)|[^\\r\\n\\p{L}\\p{N}]?\\p{L}+|\\p{N}{1,3}| ?[^\\s\\p{L}\\p{N}]+[\\r\\n]*|\\s*[\\r\\n]|\\s+(?!\\S)|\\s+"
@@ -38,6 +37,7 @@ function updateLegend(patternType) {
     patterns.forEach((item, index) => {
         const legendItem = document.createElement('div');
         legendItem.className = 'legend-item';
+        legendItem.dataset.patternIndex = index; // 添加这行
         
         const colorBox = document.createElement('div');
         colorBox.className = 'legend-color';
@@ -49,6 +49,23 @@ function updateLegend(patternType) {
         legendItem.appendChild(colorBox);
         legendItem.appendChild(description);
         legendDiv.appendChild(legendItem);
+        
+        // 添加鼠标事件
+        legendItem.addEventListener('mouseenter', () => {
+            document.querySelectorAll('.token').forEach(token => {
+                if (token.dataset.patternIndex === index.toString()) {
+                    token.style.backgroundColor = colors[index];
+                } else {
+                    token.style.backgroundColor = 'transparent';
+                }
+            });
+        });
+        
+        legendItem.addEventListener('mouseleave', () => {
+            document.querySelectorAll('.token').forEach(token => {
+                token.style.backgroundColor = colors[token.dataset.patternIndex];
+            });
+        });
     });
     
     return colors;
@@ -92,6 +109,7 @@ function tokenize() {
             const span = document.createElement('span');
             span.textContent = matchText;
             span.className = 'token';
+            span.dataset.patternIndex = colorIndex; // 添加这行
             span.style.backgroundColor = colors[colorIndex];
             output.appendChild(span);
             
