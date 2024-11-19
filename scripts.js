@@ -6,7 +6,7 @@ const patterns = {
 
 function getRandomColor() {
     const hue = Math.random() * 360;
-    return `hsl(${hue}, 70%, 85%)`;
+    return `hsl(${hue}, 80%, 85%)`;
 }
 
 const patternExplanations = {
@@ -44,7 +44,7 @@ function updateLegend(patternType) {
         colorBox.style.backgroundColor = colors[index];
         
         const description = document.createElement('div');
-        description.textContent = `${item.desc} (${item.pattern})`;
+        description.innerHTML = `${item.desc} (<code>${item.pattern}</code>)`;
         
         legendItem.appendChild(colorBox);
         legendItem.appendChild(description);
